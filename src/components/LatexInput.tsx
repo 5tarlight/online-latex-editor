@@ -9,8 +9,9 @@ export default function LatexInput({
     <textarea
       className={
         "w-full h-64 p-2 mt-12 border-2 border-gray-300 rounded-md " +
-        "resize-none"
+        "resize-none text-lg"
       }
+      style={{ fontFamily: "monospace" }}
       value={value}
       onChange={(e) => setValue(e.target.value)}
     ></textarea>
