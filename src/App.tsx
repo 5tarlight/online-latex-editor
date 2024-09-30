@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LatexInput from "./components/LatexInput";
 import Title from "./components/Title";
-import { MathJax, MathJaxContext } from "better-react-mathjax";
+import Equation from "./components/Equation";
 
 function App() {
   const [value, setValue] = useState("");
@@ -13,19 +13,7 @@ function App() {
         <Title />
         <div className="mt-12">Buttons...</div>
         <LatexInput value={value} setValue={setValue} />
-        <div className="mt-16">
-          <MathJaxContext>
-            <MathJax
-              style={{
-                fontSize: `${fontSize}px`,
-                color: "black",
-                backgroundColor: "white",
-                padding: "0.5rem",
-                borderRadius: "0.5rem",
-              }}
-            >{`\\(\\displaystyle ${value}\\)`}</MathJax>
-          </MathJaxContext>
-        </div>
+        <Equation fontSize={fontSize}>{value}</Equation>
       </div>
     </main>
   );
