@@ -1,4 +1,4 @@
-import { MathJax, MathJaxContext } from "better-react-mathjax";
+import { MathJax } from "better-react-mathjax";
 
 export default function Equation({
   children,
@@ -8,25 +8,16 @@ export default function Equation({
   fontSize: number;
 }) {
   return (
-    <div className="mt-16">
-      <MathJaxContext
-        config={{
-          tex: {
-            processEscapes: true,
-            linebreaks: { automatic: true },
-          },
+    <div className="mt-8">
+      <MathJax
+        style={{
+          fontSize: `${fontSize}px`,
+          color: "black",
+          backgroundColor: "white",
+          padding: "0.5rem",
+          borderRadius: "0.5rem",
         }}
-      >
-        <MathJax
-          style={{
-            fontSize: `${fontSize}px`,
-            color: "black",
-            backgroundColor: "white",
-            padding: "0.5rem",
-            borderRadius: "0.5rem",
-          }}
-        >{`\\[ ${children} \\]`}</MathJax>
-      </MathJaxContext>
+      >{`\\[ ${children} \\]`}</MathJax>
     </div>
   );
 }
