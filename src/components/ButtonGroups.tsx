@@ -1,4 +1,4 @@
-export default function ShortcutContainer({
+export default function ButtonGroups({
   value,
   setValue,
   fontSize,

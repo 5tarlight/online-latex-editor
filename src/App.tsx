@@ -2,7 +2,7 @@ import { useState } from "react";
 import LatexInput from "./components/LatexInput";
 import Title from "./components/Title";
 import Equation from "./components/Equation";
-import ShortcutContainer from "./components/ShortcutContainer";
+import ButtonGroups from "./components/ButtonGroups";
 
 function App() {
   const [value, setValue] = useState("");
@@ -13,7 +13,7 @@ function App() {
       <div className="max-w-[1024px] w-full px-4 flex flex-col items-center">
         <Title />
         <div className="mt-12">
-          <ShortcutContainer
+          <ButtonGroups
             fontSize={fontSize}
             setFontSize={setFontSize}
             setValue={setValue}
