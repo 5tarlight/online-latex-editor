@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export default function ButtonGroups({
   value,
   setValue,
@@ -9,6 +11,10 @@ export default function ButtonGroups({
   fontSize: number;
   setFontSize: (fontSize: number) => void;
 }) {
+  const buttons: string[][] = [
+    ["\\frac{a}{b}", "\\sqrt{a}", "\\sqrt[n]{a}", "\\sum", "\\int", "\\infty"],
+  ];
+
   return (
     <div className="flex flex-col">
       <div className="flex gap-4 flex-wrap">
@@ -25,6 +31,16 @@ export default function ButtonGroups({
           />{" "}
           px
         </div>
+      </div>
+      <div className="flex gap-4 flex-wrap mt-8">
+        {buttons.map((content, index) => (
+          <Button
+            key={index}
+            content={content}
+            value={value}
+            setValue={setValue}
+          />
+        ))}
       </div>
     </div>
   );
