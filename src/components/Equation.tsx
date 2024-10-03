@@ -1,5 +1,6 @@
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 import ExportToSvg from './Downloads/ExportToSvg';
+import ExportToPng from './Downloads/ExportToPng';
 
 export default function Equation({ children, fontSize }: { children: string; fontSize: number }) {
   return (
@@ -19,6 +20,7 @@ export default function Equation({ children, fontSize }: { children: string; fon
       </MathJaxContext>
 
       <ExportToSvg children={children} />
+      <ExportToPng children={children} />
     </div>
   );
 }
