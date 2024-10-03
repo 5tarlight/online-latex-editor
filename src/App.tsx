@@ -16,7 +16,7 @@ function App() {
     <main className="flex justify-center">
       <div className="max-w-[1024px] w-full px-4 flex flex-col items-center">
         <Title />
-        <div className="mt-12 mb-16 w-full">
+        <div className="mt-12 w-full">
           <ButtonGroups
             fontSize={fontSize}
             setFontSize={setFontSize}
