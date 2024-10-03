@@ -19,8 +19,9 @@ export default function Equation({
           padding: "0.5rem",
           borderRadius: "0.5rem",
         }}
+        dynamic={true}
       >
-        {`\\( ${children} \\)`}
+        {`\\[ ${children} \\]`}
       </MathJax>
       <div className="flex justify-center flex-col-2 gap-2">
         <ExportToSvg children={children} />
