@@ -4,6 +4,7 @@ import { SVG } from 'mathjax-full/js/output/svg.js';
 import { liteAdaptor } from 'mathjax-full/js/adaptors/liteAdaptor.js';
 import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
 import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
+import cn from '../../lib/cn';
 
 export default function ExportToSvg({ children }: { children: string }) {
   const convertLatexToSVG = () => {
@@ -30,7 +31,13 @@ export default function ExportToSvg({ children }: { children: string }) {
   };
 
   return (
-    <button onClick={convertLatexToSVG} className="border-2 border-gray-300 rounded-md p-2 mt-4">
+    <button 
+      onClick={convertLatexToSVG} 
+      className={cn(
+        "border-2 border-gray-300 rounded-md p-2 mt-4",
+        "hover:bg-gray-300"
+      )}
+    >
       Export to SVG
     </button>
   );

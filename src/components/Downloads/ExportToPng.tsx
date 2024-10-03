@@ -5,6 +5,7 @@ import { SVG } from 'mathjax-full/js/output/svg.js';
 import { browserAdaptor } from 'mathjax-full/js/adaptors/browserAdaptor.js';
 import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
 import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
+import cn from '../../lib/cn';
 
 export default function ExportToPng(props: { children: string }) {
   const { children } = props;
@@ -99,7 +100,10 @@ export default function ExportToPng(props: { children: string }) {
     <div>
       <button 
         onClick={convertLatexToPNG} 
-        className="border-2 border-gray-300 rounded-md p-2 mt-4"
+        className={cn(
+          "border-2 border-gray-300 rounded-md p-2 mt-4",
+          "hover:bg-gray-300"
+        )}
       >
         export to PNG
       </button>

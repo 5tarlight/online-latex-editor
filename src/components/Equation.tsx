@@ -18,9 +18,10 @@ export default function Equation({ children, fontSize }: { children: string; fon
           {`\\[ ${children} \\]`}
         </MathJax>
       </MathJaxContext>
-
-      <ExportToSvg children={children} />
-      <ExportToPng children={children} />
+      <div className="flex flex-col-2 gap-2">
+        <ExportToSvg children={children} />
+        <ExportToPng children={children} />
+      </div>
     </div>
   );
 }
