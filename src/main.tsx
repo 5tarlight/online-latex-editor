@@ -10,7 +10,6 @@ createRoot(document.getElementById("root")!).render(
       config={{
         tex: {
           processEscapes: true,
-          linebreaks: { automatic: true },
         },
       }}
     >
