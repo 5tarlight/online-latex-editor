@@ -11,7 +11,10 @@ export default function LatexInput({
         "w-full h-64 p-2 mt-12 border-2 border-gray-300 rounded-md " +
         "resize-none text-lg"
       }
-      style={{ fontFamily: "monospace" }}
+      style={{
+        fontFamily:
+          "'Jetbrains Mono', 'Ubuntu Mono', 'Consolas', 'Source Code Pro', monospace",
+      }}
       value={value}
       onChange={(e) => setValue(e.target.value)}
     ></textarea>
