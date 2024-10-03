@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import LatexInput from "./components/LatexInput";
 import Title from "./components/Title";
 import Equation from "./components/Equation";
@@ -8,6 +8,10 @@ function App() {
   const [value, setValue] = useState("");
   const [fontSize, setFontSize] = useState(20);
 
+  const append = useCallback((x: string) => {
+    setValue((prevValue) => prevValue + x);
+  }, []);
+
   return (
     <main className="flex justify-center">
       <div className="max-w-[1024px] w-full px-4 flex flex-col items-center">
@@ -16,8 +20,7 @@ function App() {
           <ButtonGroups
             fontSize={fontSize}
             setFontSize={setFontSize}
-            setValue={setValue}
-            value={value}
+            append={append} // 메모이제이션된 append 함수 전달
           />
         </div>
         <LatexInput value={value} setValue={setValue} />

@@ -2,13 +2,11 @@ import { buttons } from "../lib/button-content";
 import Button from "./Button";
 
 export default function ButtonGroups({
-  value,
-  setValue,
+  append,
   fontSize,
   setFontSize,
 }: {
-  value: string;
-  setValue: (value: string) => void;
+  append(value: string): void;
   fontSize: number;
   setFontSize: (fontSize: number) => void;
 }) {
@@ -31,12 +29,7 @@ export default function ButtonGroups({
       </div>
       <div className="flex-wrap mt-8 relative w-full">
         {buttons.map((content, index) => (
-          <Button
-            key={index}
-            content={content}
-            value={value}
-            setValue={setValue}
-          />
+          <Button key={index} content={content} append={append} />
         ))}
       </div>
     </div>

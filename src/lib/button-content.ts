@@ -1,5 +1,82 @@
 type Content = [string, string];
 
+const common: Content[] = [
+  ["\\frac{a}{b}", "\\frac{}{}"],
+  ["\\sqrt{a}", "\\sqrt{}"],
+  ["\\sqrt[n]{a}", "\\sqrt[]{}"],
+  ["a_{b}", "_{}"],
+  ["a^{b}", "^{}"],
+  ["\\int_{a}^{b}", "\\int_{}^{}"],
+  ["\\sum_{a}^{b}", "\\sum_{}^{}"],
+  ["\\prod_{a}^{b}", "\\prod_{}^{}"],
+  ["\\lim_{a \\to b}", "\\lim_{}^{}"],
+  ["\\log_{a}^{b}", "\\log_{}^{}"],
+];
+
+const symbols: Content[] = [
+  ["\\infty", "\\infty"],
+  ["\\pm", "\\pm"],
+  ["\\mp", "\\mp"],
+  ["\\times", "\\times"],
+  ["\\div", "\\div"],
+  ["\\neq", "\\neq"],
+  ["\\forall", "\\forall"],
+  ["\\exists", "\\exists"],
+  ["\\nexists", "\\nexists"],
+  ["\\in", "\\in"],
+  ["\\notin", "\\notin"],
+  ["\\subset", "\\subset"],
+  ["\\subseteq", "\\subseteq"],
+  ["\\supset", "\\supset"],
+  ["\\supseteq", "\\supseteq"],
+  ["\\cup", "\\cup"],
+  ["\\cap", "\\cap"],
+  ["\\emptyset", "\\emptyset"],
+  ["\\varnothing", "\\varnothing"],
+  ["\\angle", "\\angle"],
+  ["\\bot", "\\bot"],
+  ["\\top", "\\top"],
+];
+
+const logic: Content[] = [
+  ["\\land", "\\land"],
+  ["\\lor", "\\lor"],
+  ["\\lnot", "\\lnot"],
+  ["\\rightarrow", "\\rightarrow"],
+  ["\\leftarrow", "\\leftarrow"],
+  ["\\leftrightarrow", "\\leftrightarrow"],
+  ["\\Rightarrow", "\\Rightarrow"],
+  ["\\Leftarrow", "\\Leftarrow"],
+  ["\\Leftrightarrow", "\\Leftrightarrow"],
+  ["\\vdash", "\\vdash"],
+  ["\\models", "\\models"],
+  ["\\vdash", "\\vdash"],
+  ["\\vDash", "\\vDash"],
+  ["\\Vdash", "\\Vdash"],
+  ["\\Vvdash", "\\Vvdash"],
+  ["\\bot", "\\bot"],
+  ["\\top", "\\top"],
+  ["\\perp", "\\perp"],
+  ["\\parallel", "\\parallel"],
+  ["\\nparallel", "\\nparallel"],
+  ["\\vdash", "\\vdash"],
+  ["\\vDash", "\\vDash"],
+  ["\\Vdash", "\\Vdash"],
+  ["\\Vvdash", "\\Vvdash"],
+];
+
+const calculus: Content[] = [
+  ["\\partial", "\\partial"],
+  ["\\nabla", "\\nabla"],
+  ["\\oint", "\\oint"],
+  ["\\iint", "\\iint"],
+  ["\\iiint", "\\iiint"],
+  ["\\iiiint", "\\iiiint"],
+  ["\\idotsint", "\\idotsint"],
+  ["\\frac{d}{dx}", "\\frac{d}{dx}"],
+  ["\\frac{\\partial}{\\partial x}", "\\frac{\\partial}{\\partial x}"],
+];
+
 const greekLower: Content[] = [
   ["\\alpha", "\\alpha"],
   ["\\beta", "\\beta"],
@@ -41,4 +118,11 @@ const greekUpper: Content[] = [
   ["\\Omega", "\\Omega"],
 ];
 
-export const buttons: Content[][] = [greekLower, greekUpper];
+export const buttons: Content[][] = [
+  common,
+  symbols,
+  logic,
+  calculus,
+  greekLower,
+  greekUpper,
+];
