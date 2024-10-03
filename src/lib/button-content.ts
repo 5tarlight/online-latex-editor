@@ -376,7 +376,7 @@ const brackets: Content[] = [
   ["\\}", "\\}"],
   ["\\langle", "\\langle"],
   ["\\rangle", "\\rangle"],
-  ["|", "|"],
+  ["|", "left| \right|"],
   ["\\|", "\\|"],
   ["\\lfloor", "\\lfloor"],
   ["\\rfloor", "\\rfloor"],
