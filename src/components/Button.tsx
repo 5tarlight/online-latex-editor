@@ -10,12 +10,11 @@ const Button = React.memo(function Button({
   content: [string, string][];
 }) {
   const [hover, setHover] = useState(false);
-  console.log("Button render");
 
   return (
     <div
       className={
-        "border border-gray-300 rounded-md relative bg-white inline-flex p-1 m-1" +
+        "border border-gray-300 rounded-md relative bg-white inline-flex p-1 mx-1 py-0.5" +
         (hover ? " shadow-md flex-col z-10" : "")
       }
       onMouseEnter={() => setHover(true)}
@@ -27,9 +26,9 @@ const Button = React.memo(function Button({
             <div key={i} className="flex w-full justify-between">
               {content
                 .slice(i * 6, Math.min((i + 1) * 6, content.length))
-                .map((button) => (
+                .map((button, j) => (
                   <button
-                    key={button[0]}
+                    key={`${button[0]}-${i * 6 + j}`}
                     className="px-1 py-1 flex justify-center items-center w-full"
                     onClick={() => append(button[1])}
                   >

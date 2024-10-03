@@ -20,7 +20,7 @@ function App() {
           <ButtonGroups
             fontSize={fontSize}
             setFontSize={setFontSize}
-            append={append} // 메모이제이션된 append 함수 전달
+            append={append}
           />
         </div>
         <LatexInput value={value} setValue={setValue} />
