@@ -14,7 +14,7 @@ function App() {
 
   return (
     <main className="flex justify-center">
-      <div className="max-w-[1024px] w-full px-4 flex flex-col items-center">
+      <div className="max-w-[1024px] w-full px-4 flex flex-col items-center mb-8">
         <Title />
         <div className="mt-12 w-full">
           <ButtonGroups
