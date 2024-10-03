@@ -308,6 +308,10 @@ const overUnder: Content[] = [
   ["\\overrightarrow{x}", "\\overrightarrow{}"],
   ["\\overleftarrow{x}", "\\overleftarrow{}"],
   ["\\overleftrightarrow{x}", "\\overleftrightarrow{}"],
+  ["\\widehat{x}", "\\widehat{}"],
+  ["\\widetilde{x}", "\\widetilde{}"],
+  ["\\overset{a}{abc}", "\\overset{}{}"],
+  ["\\underset{a}{abc}", "\\underset{}{}"],
 ];
 
 const arrows: Content[] = [
