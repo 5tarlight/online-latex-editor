@@ -370,10 +370,8 @@ const arrows: Content[] = [
 ];
 
 const brackets: Content[] = [
-  ["(", "("],
-  [")", ")"],
-  ["[", "["],
-  ["]", "]"],
+  ["()", "\\left( \\right)"],
+  ["[]", "\\left[ \\right]"],
   ["\\{", "\\{"],
   ["\\}", "\\}"],
   ["\\langle", "\\langle"],
