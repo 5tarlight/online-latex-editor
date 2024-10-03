@@ -6,20 +6,26 @@ import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
 import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
 import cn from '../../lib/cn';
 
-export default function ExportToSvg({ children }: { children: string }) {
+export default function ExportToSvg({
+  children,
+}: {
+  children: string;
+}) {
+  const adaptor = liteAdaptor();
+  RegisterHTMLHandler(adaptor);
+
+  const texInput = new TeX({ packages: AllPackages });
+  const svgOutput = new SVG({ fontCache: 'local' });
+
+  const mathDocument = mathjax.document('', {
+    InputJax: texInput,
+    OutputJax: svgOutput,
+  });
+
   const convertLatexToSVG = () => {
-    const adaptor = liteAdaptor();
-    RegisterHTMLHandler(adaptor);
-
-    const texInput = new TeX({ packages: AllPackages });
-    const svgOutput = new SVG({ fontCache: 'local' });
-
-    const mathDocument = mathjax.document('', {
-      InputJax: texInput,
-      OutputJax: svgOutput,
+    const node = mathDocument.convert(children, {
+      display: true,
     });
-
-    const node = mathDocument.convert(children, { display: true });
     const svgData = adaptor.outerHTML(node);
     const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
     const url = URL.createObjectURL(blob);
@@ -31,14 +37,16 @@ export default function ExportToSvg({ children }: { children: string }) {
   };
 
   return (
-    <button 
-      onClick={convertLatexToSVG} 
-      className={cn(
-        "border-2 border-gray-300 rounded-md p-2 mt-4",
-        "hover:bg-gray-300"
-      )}
-    >
-      Export to SVG
-    </button>
+    <div>
+      <button
+        onClick={convertLatexToSVG}
+        className={cn(
+          "border-2 border-gray-300 rounded-md p-2 mt-4",
+          "hover:bg-gray-300"
+        )}
+      >
+        export to SVG
+      </button>
+    </div>
   );
 }
