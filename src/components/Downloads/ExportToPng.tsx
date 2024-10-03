@@ -1,10 +1,5 @@
-import React, { useRef } from 'react';
-import { mathjax } from 'mathjax-full/js/mathjax.js';
-import { TeX } from 'mathjax-full/js/input/tex.js';
-import { SVG } from 'mathjax-full/js/output/svg.js';
-import { browserAdaptor } from 'mathjax-full/js/adaptors/browserAdaptor.js';
-import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
-import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
+import { useRef } from 'react';
+import { convertLatexToSVG } from '../../lib/LatexToSvg';
 import cn from '../../lib/cn';
 
 interface ExportToPngProps {
@@ -12,47 +7,13 @@ interface ExportToPngProps {
   fontsize: number;
 }
 
-export default function ExportToPng({children, fontsize}: ExportToPngProps) {
+export default function ExportToPng({ children, fontsize }: ExportToPngProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const convertLatexToPNG = () => {
-    const adaptor = browserAdaptor();
-    RegisterHTMLHandler(adaptor);
+  const handleExportToPng = () => {
+    const svgElement = convertLatexToSVG(children, fontsize, containerRef);
 
-    const texInput = new TeX({ packages: AllPackages });
-    const svgOutput = new SVG({ fontCache: 'none' });
-
-    const html = mathjax.document(document, {
-      InputJax: texInput,
-      OutputJax: svgOutput,
-    });
-
-    // LaTeX를 SVG로 변환하여 실제 DOM에 추가
-    const node = html.convert(children, { display: true });
-    if (containerRef.current) {
-      containerRef.current.innerHTML = '';
-      containerRef.current.appendChild(node);
-
-      // SVG에 fontsize를 적용
-      const svgElement = containerRef.current.querySelector('svg');
-      if (svgElement) {
-        svgElement.style.fontSize = `${fontsize}px`;
-      }
-    }
-
-    // 다음 프레임에서 실행하여 SVG가 렌더링되도록 함
-    requestAnimationFrame(() => {
-      if (!containerRef.current) {
-        console.error('컨테이너를 찾을 수 없습니다.');
-        return;
-      }
-
-      const svgElement = containerRef.current.querySelector('svg');
-      if (!svgElement) {
-        console.error('SVG 요소를 찾을 수 없습니다.');
-        return;
-      }
-
+    if (svgElement) {
       // SVG 요소를 직렬화
       const data = new XMLSerializer().serializeToString(svgElement);
       const svgDataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(data);
@@ -103,13 +64,13 @@ export default function ExportToPng({children, fontsize}: ExportToPngProps) {
       };
 
       img.src = svgDataUrl;
-    });
+    }
   };
 
   return (
     <div>
       <button   
-        onClick={convertLatexToPNG} 
+        onClick={handleExportToPng} 
         className={cn(
           "border-2 border-gray-300 rounded-md p-2 mt-4",
           "hover:bg-gray-300"
