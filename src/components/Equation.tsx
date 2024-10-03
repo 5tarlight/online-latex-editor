@@ -20,7 +20,7 @@ export default function Equation({
           borderRadius: "0.5rem",
         }}
       >
-        {`\\[ ${children} \\]`}
+        {`\\( ${children} \\)`}
       </MathJax>
       <div className="flex justify-center flex-col-2 gap-2">
         <ExportToSvg children={children} />
