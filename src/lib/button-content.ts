@@ -222,59 +222,59 @@ const setTheory: Content[] = [
 const linearAlgebra: Content[] = [
   [
     "\\begin{matrix} a & b \\\\ c & d \\end{matrix}",
-    "\\begin{matrix} & \\\\ & \\end{matrix}",
+    "\\begin{matrix}\n & \\\\\n & \n\\end{matrix}",
   ],
   [
     "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}",
-    "\\begin{bmatrix} & \\\\ & \\end{bmatrix}",
+    "\\begin{bmatrix}\n & \\\\\n & \n\\end{bmatrix}",
   ],
   [
     "\\begin{Bmatrix} a & b \\\\ c & d \\end{Bmatrix}",
-    "\\begin{Bmatrix} & \\\\ & \\end{Bmatrix}",
+    "\\begin{Bmatrix}\n & \\\\\n & \n\\end{Bmatrix}",
   ],
   [
     "\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}",
-    "\\begin{vmatrix} & \\\\ & \\end{vmatrix}",
+    "\\begin{vmatrix}\n & \\\\\n & \n\\end{vmatrix}",
   ],
   [
     "\\begin{Vmatrix} a & b \\\\ c & d \\end{Vmatrix}",
-    "\\begin{Vmatrix} & \\\\ & \\end{Vmatrix}",
+    "\\begin{Vmatrix}\n & \\\\\n & \n\\end{Vmatrix}",
   ],
   [
     "\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}",
-    "\\begin{pmatrix} & \\\\ & \\end{pmatrix}",
+    "\\begin{pmatrix}\n & \\\\\n & \n\\end{pmatrix}",
   ],
   [
     "\\begin{smallmatrix} a & b \\\\ c & d \\end{smallmatrix}",
-    "\\begin{smallmatrix} & \\\\ & \\end{smallmatrix}",
+    "\\begin{smallmatrix}\n & \\\\n & \n\\end{smallmatrix}",
   ],
   [
     "\\begin{matrix} a & b \\\\ c & d \\end{matrix}",
-    "\\begin{matrix} & \\\\ & \\end{matrix}",
+    "\\begin{matrix}\n & \\\\\n & \n\\end{matrix}",
   ],
   [
     "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}",
-    "\\begin{bmatrix} & \\\\ & \\end{bmatrix}",
+    "\\begin{bmatrix}\n & \\\\\n & \n\\end{bmatrix}",
   ],
   [
     "\\begin{Bmatrix} a & b \\\\ c & d \\end{Bmatrix}",
-    "\\begin{Bmatrix} & \\\\ & \\end{Bmatrix}",
+    "\\begin{Bmatrix}\n & \\\\\n & \n\\end{Bmatrix}",
   ],
   [
     "\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}",
-    "\\begin{vmatrix} & \\\\ & \\end{vmatrix}",
+    "\\begin{vmatrix}\n & \\\\\n & \n\\end{vmatrix}",
   ],
   [
     "\\begin{Vmatrix} a & b \\\\ c & d \\end{Vmatrix}",
-    "\\begin{Vmatrix} & \\\\ & \\end{Vmatrix}",
+    "\\begin{Vmatrix}\n & \\\\\n & \n\\end{Vmatrix}",
   ],
   [
     "\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}",
-    "\\begin{pmatrix} & \\\\ & \\end{pmatrix}",
+    "\\begin{pmatrix}\n & \\\\\n & \n\\end{pmatrix}",
   ],
   [
     "\\begin{smallmatrix} a & b \\\\ c & d \\end{smallmatrix}",
-    "\\begin{smallmatrix} & \\\\ & \\end{smallmatrix}",
+    "\\begin{smallmatrix}\n & \\\\\n & \n\\end{smallmatrix}",
   ],
 ];
 
@@ -386,6 +386,29 @@ const brackets: Content[] = [
   ["\\rceil", "\\rceil"],
 ];
 
+const specialBold: Content[] = [
+  ["\\mathbb{A}", "\\mathbb{}"],
+  ["\\mathrm{A}", "\\mathrm{}"],
+  ["\\mathcal{A}", "\\mathcal{}"],
+  ["\\mathfrak{A}", "\\mathfrak{}"],
+  ["\\mathscr{A}", "\\mathcal{}"],
+];
+
+const combinations: Content[] = [
+  ["\\mathrm{C}_{a}^{b}", "\\mathrm{C}_{}^{}"],
+  ["\\mathrm{P}_{a}^{b}", "\\mathrm{P}_{}^{}"],
+  ["\\binom{a}{b}", "\\binom{}{}"],
+  ["_{a}\\mathrm{C}_{b}", "_{}\\mathrm{C}_{}"],
+  ["_{a}\\mathrm{P}_{b}", "_{}\\mathrm{P}_{}"],
+];
+
+const multiLine: Content[] = [
+  [
+    "\\left\\{ \\begin{array}{l}\\cdots \\\\\\cdots \\end{array} \\right.",
+    "\\left\\{ \\begin{array}{l}\n\\cdots \\\\\n\\cdots \n\\end{array} \\right.",
+  ],
+];
+
 export const buttons: Content[][] = [
   common,
   symbols,
@@ -401,5 +424,11 @@ export const buttons: Content[][] = [
   physics,
   overUnder,
   arrows,
+  combinations,
+  specialBold,
+  [["\\text{Text}", "\\text{}"]],
+  [["\\textbf{TextBF}", "\\textbf{}"]],
+  [["\\LaTeX", "\\LaTeX"]],
   linearAlgebra,
+  multiLine,
 ];
