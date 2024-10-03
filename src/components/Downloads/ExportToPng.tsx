@@ -7,8 +7,12 @@ import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
 import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
 import cn from '../../lib/cn';
 
-export default function ExportToPng(props: { children: string }) {
-  const { children } = props;
+interface ExportToPngProps {
+  children: string;
+  fontsize: number;
+}
+
+export default function ExportToPng({children, fontsize}: ExportToPngProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const convertLatexToPNG = () => {
@@ -28,6 +32,12 @@ export default function ExportToPng(props: { children: string }) {
     if (containerRef.current) {
       containerRef.current.innerHTML = '';
       containerRef.current.appendChild(node);
+
+      // SVG에 fontsize를 적용
+      const svgElement = containerRef.current.querySelector('svg');
+      if (svgElement) {
+        svgElement.style.fontSize = `${fontsize}px`;
+      }
     }
 
     // 다음 프레임에서 실행하여 SVG가 렌더링되도록 함
@@ -98,7 +108,7 @@ export default function ExportToPng(props: { children: string }) {
 
   return (
     <div>
-      <button 
+      <button   
         onClick={convertLatexToPNG} 
         className={cn(
           "border-2 border-gray-300 rounded-md p-2 mt-4",
