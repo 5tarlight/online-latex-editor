@@ -11,8 +11,17 @@ export default function ButtonGroups({
   fontSize: number;
   setFontSize: (fontSize: number) => void;
 }) {
-  const buttons: string[][] = [
-    ["\\frac{a}{b}", "\\sqrt{a}", "\\sqrt[n]{a}", "\\sum", "\\int", "\\infty"],
+  const buttons: string[][][] = [
+    [
+      [
+        "\\frac{a}{b}",
+        "\\sqrt{a}",
+        "\\sqrt[n]{a}",
+        "\\sum",
+        "\\int",
+        "\\infty",
+      ],
+    ],
   ];
 
   return (

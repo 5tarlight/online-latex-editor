@@ -7,11 +7,11 @@ export default function Button({
 }: {
   value: string;
   setValue: (value: string) => void;
-  content: string[];
+  content: string[][];
 }) {
   return (
     <div className="flex border border-gray-300 rounded-md">
-      {content.map((button) => (
+      {content[0].map((button) => (
         <button
           key={button}
           className="px-1 py-1"
