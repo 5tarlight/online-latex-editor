@@ -11,19 +11,17 @@ export default function Equation({
 }) {
   return (
     <div className="mt-8">
-      <MathJaxContext>
-        <MathJax
-          style={{
-            fontSize: `${fontSize}px`,
-            color: "black",
-            backgroundColor: "white",
-            padding: "0.5rem",
-            borderRadius: "0.5rem",
-          }}
-        >
-          {`\\[ ${children} \\]`}
-        </MathJax>
-      </MathJaxContext>
+      <MathJax
+        style={{
+          fontSize: `${fontSize}px`,
+          color: "black",
+          backgroundColor: "white",
+          padding: "0.5rem",
+          borderRadius: "0.5rem",
+        }}
+      >
+        {`\\[ ${children} \\]`}
+      </MathJax>
       <div className="flex justify-center flex-col-2 gap-2">
         <ExportToSvg children={children} />
         <ExportToPng children={children} />
