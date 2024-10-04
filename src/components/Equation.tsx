@@ -24,8 +24,8 @@ export default function Equation({
         {`\\[ ${children} \\]`}
       </MathJax>
       <div className="flex justify-center flex-col-2 gap-2">
-        <ExportToSvg children={children} />
-        <ExportToPng children={children} />
+        <ExportToSvg children={children} fontsize={fontSize}/>
+        <ExportToPng children={children} fontsize={fontSize}/>
       </div>
     </div>
   );
