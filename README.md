@@ -22,3 +22,12 @@ and export the equation once you're satisfied with the rendering.
 - React
 - Tailwind css
 - Typescript
+
+## Authors
+
+- 5tarlight (YEAHx4)
+- karpitony (Yunseok)
+
+## License
+
+MIT
