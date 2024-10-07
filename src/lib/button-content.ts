@@ -140,23 +140,10 @@ const trigonometry: Content[] = [
   ["\\csc", "\\csc"],
   ["\\sec", "\\sec"],
   ["\\cot", "\\cot"],
-  ["\\arcsin", "\\arcsin"],
-  ["\\arccos", "\\arccos"],
-  ["\\arctan", "\\arctan"],
   ["\\sinh", "\\sinh"],
   ["\\cosh", "\\cosh"],
   ["\\tanh", "\\tanh"],
   ["\\coth", "\\coth"],
-  ["\\sin^{-1}", "\\sin^{-1}"],
-  ["\\cos^{-1}", "\\cos^{-1}"],
-  ["\\tan^{-1}", "\\tan^{-1}"],
-  ["\\csc^{-1}", "\\csc^{-1}"],
-  ["\\sec^{-1}", "\\sec^{-1}"],
-  ["\\cot^{-1}", "\\cot^{-1}"],
-  ["\\sinh^{-1}", "\\sinh^{-1}"],
-  ["\\cosh^{-1}", "\\cosh^{-1}"],
-  ["\\tanh^{-1}", "\\tanh^{-1}"],
-  ["\\coth^{-1}", "\\coth^{-1}"],
 ];
 
 const geometry: Content[] = [
@@ -244,38 +231,6 @@ const linearAlgebra: Content[] = [
     "\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}",
     "\\begin{pmatrix}\n & \\\\\n & \n\\end{pmatrix}",
   ],
-  [
-    "\\begin{smallmatrix} a & b \\\\ c & d \\end{smallmatrix}",
-    "\\begin{smallmatrix}\n & \\\\n & \n\\end{smallmatrix}",
-  ],
-  [
-    "\\begin{matrix} a & b \\\\ c & d \\end{matrix}",
-    "\\begin{matrix}\n & \\\\\n & \n\\end{matrix}",
-  ],
-  [
-    "\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}",
-    "\\begin{bmatrix}\n & \\\\\n & \n\\end{bmatrix}",
-  ],
-  [
-    "\\begin{Bmatrix} a & b \\\\ c & d \\end{Bmatrix}",
-    "\\begin{Bmatrix}\n & \\\\\n & \n\\end{Bmatrix}",
-  ],
-  [
-    "\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}",
-    "\\begin{vmatrix}\n & \\\\\n & \n\\end{vmatrix}",
-  ],
-  [
-    "\\begin{Vmatrix} a & b \\\\ c & d \\end{Vmatrix}",
-    "\\begin{Vmatrix}\n & \\\\\n & \n\\end{Vmatrix}",
-  ],
-  [
-    "\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}",
-    "\\begin{pmatrix}\n & \\\\\n & \n\\end{pmatrix}",
-  ],
-  [
-    "\\begin{smallmatrix} a & b \\\\ c & d \\end{smallmatrix}",
-    "\\begin{smallmatrix}\n & \\\\\n & \n\\end{smallmatrix}",
-  ],
 ];
 
 const statistics: Content[] = [
@@ -315,12 +270,6 @@ const overUnder: Content[] = [
 ];
 
 const arrows: Content[] = [
-  ["\\uparrow", "\\uparrow"],
-  ["\\downarrow", "\\downarrow"],
-  ["\\updownarrow", "\\updownarrow"],
-  ["\\Uparrow", "\\Uparrow"],
-  ["\\Downarrow", "\\Downarrow"],
-  ["\\Updownarrow", "\\Updownarrow"],
   ["\\leftarrow", "\\leftarrow"],
   ["\\rightarrow", "\\rightarrow"],
   ["\\leftrightarrow", "\\leftrightarrow"],
@@ -371,6 +320,12 @@ const arrows: Content[] = [
   ["\\rightharpoondown", "\\rightharpoondown"],
   ["\\rightleftharpoons", "\\rightleftharpoons"],
   ["\\leadsto", "\\leadsto"],
+  ["\\uparrow", "\\uparrow"],
+  ["\\downarrow", "\\downarrow"],
+  ["\\updownarrow", "\\updownarrow"],
+  ["\\Uparrow", "\\Uparrow"],
+  ["\\Downarrow", "\\Downarrow"],
+  ["\\Updownarrow", "\\Updownarrow"],
 ];
 
 const brackets: Content[] = [
