@@ -70,6 +70,7 @@ const logic: Content[] = [
 const calculus: Content[] = [
   ["\\partial", "\\partial"],
   ["\\nabla", "\\nabla"],
+  ["\\int", "\\int"],
   ["\\oint", "\\oint"],
   ["\\iint", "\\iint"],
   ["\\iiint", "\\iiint"],
