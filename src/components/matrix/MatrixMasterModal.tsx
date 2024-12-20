@@ -42,8 +42,64 @@ export default function MatrixMasterModal({
         >
           X
         </div>
-        <div></div>
-        <div className="flex justify-center gap-2">
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex gap-2 items-center">
+            <input
+              type="number"
+              className="w-16 border rounded-sm p-1"
+              value={rows}
+              onChange={(e) => {
+                const v = parseInt(e.target.value);
+                if (v < 1) return;
+
+                const newMatrix = Array.from({ length: v }, (_, i) =>
+                  Array.from({ length: cols }, (_, j) => matrix[i]?.[j] ?? "")
+                );
+
+                setRows(v);
+                setMatrix(newMatrix);
+              }}
+            />
+            <span>X</span>
+            <input
+              type="number"
+              className="w-16 border rounded-sm p-1"
+              value={cols}
+              onChange={(e) => {
+                const v = parseInt(e.target.value);
+                if (v < 1) return;
+
+                const newMatrix = Array.from({ length: rows }, (_, i) =>
+                  Array.from({ length: v }, (_, j) => matrix[i]?.[j] ?? "")
+                );
+
+                setCols(v);
+                setMatrix(newMatrix);
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col mt-8 gap-2">
+            {matrix.map((row, i) => (
+              <div key={i} className="flex gap-2">
+                {row.map((col, j) => (
+                  <div
+                    key={i * rows + j}
+                    className={cn(
+                      "w-6 h-6 transition-all duration-200 cursor-pointer",
+                      matrix[i][j]
+                        ? "bg-gray-200"
+                        : "border border-gray-400 hover:bg-gray-100"
+                    )}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center gap-2 mt-12">
           <button className="border rounded-sm px-4 py-1 border-gray-400">
             Apply
           </button>
