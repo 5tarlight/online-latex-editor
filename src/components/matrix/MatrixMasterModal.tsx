@@ -19,6 +19,15 @@ export default function MatrixMasterModal({
   setMatrix: React.Dispatch<React.SetStateAction<string[][]>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }) {
+  const buildMatrix = () => {
+    const latex = `\\begin{bmatrix}
+${matrix.map((row) => row.map((it) => it || "0").join(" & ")).join(" \\\\ ")}
+\\end{bmatrix}`;
+
+    setValue((prevValue) => prevValue + latex);
+    setOpen(false);
+  };
+
   return (
     <div
       className={cn(
@@ -88,10 +97,26 @@ export default function MatrixMasterModal({
                     key={i * rows + j}
                     className={cn(
                       "w-6 h-6 transition-all duration-200 cursor-pointer",
-                      matrix[i][j]
-                        ? "bg-gray-200"
-                        : "border border-gray-400 hover:bg-gray-100"
+                      "border border-gray-400",
+                      matrix[i][j] ? "bg-gray-200" : "hover:bg-gray-100"
                     )}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+
+                      const latex = prompt("Enter LaTeX");
+
+                      setMatrix((prevMatrix) => {
+                        const newMatrix = prevMatrix.map((r, ii) =>
+                          r.map((c, jj) => {
+                            if (ii === i && jj === j) return latex ?? "";
+                            return c;
+                          })
+                        );
+
+                        return newMatrix;
+                      });
+                    }}
                   />
                 ))}
               </div>
@@ -100,7 +125,15 @@ export default function MatrixMasterModal({
         </div>
 
         <div className="flex justify-center gap-2 mt-12">
-          <button className="border rounded-sm px-4 py-1 border-gray-400">
+          <button
+            className="border rounded-sm px-4 py-1 border-gray-400"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              buildMatrix();
+            }}
+          >
             Apply
           </button>
           <button
