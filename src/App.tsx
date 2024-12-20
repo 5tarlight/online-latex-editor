@@ -3,6 +3,7 @@ import LatexInput from "./components/LatexInput";
 import Title from "./components/Title";
 import Equation from "./components/Equation";
 import ButtonGroups from "./components/ButtonGroups";
+import OpenMatrix from "./components/matrix/OpenMatrix";
 
 function App() {
   const [value, setValue] = useState("");
@@ -23,6 +24,7 @@ function App() {
             append={append}
           />
         </div>
+        <OpenMatrix setValue={setValue} value={value} />
         <LatexInput value={value} setValue={setValue} />
         <Equation fontSize={fontSize}>{value}</Equation>
       </div>
