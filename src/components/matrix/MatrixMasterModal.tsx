@@ -1,3 +1,4 @@
+import { useState } from "react";
 import cn from "../../lib/cn";
 
 export default function MatrixMasterModal({
@@ -19,10 +20,22 @@ export default function MatrixMasterModal({
   setMatrix: React.Dispatch<React.SetStateAction<string[][]>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }) {
+  type Brackets = "(x)" | "[x]" | "{x}" | "|x|" | "||x||" | "none";
+  const [brackets, setBrackets] = useState<Brackets>("(x)");
+
   const buildMatrix = () => {
-    const latex = `\\begin{bmatrix}
+    const bracketsMap: Record<Brackets, string> = {
+      none: "matrix",
+      "(x)": "pmatrix",
+      "[x]": "bmatrix",
+      "{x}": "Bmatrix",
+      "|x|": "vmatrix",
+      "||x||": "Vmatrix",
+    };
+
+    const latex = `\\begin{${bracketsMap[brackets]}}
 ${matrix.map((row) => row.map((it) => it || "0").join(" & ")).join(" \\\\ ")}
-\\end{bmatrix}`;
+\\end{${bracketsMap[brackets]}}`;
 
     setValue((prevValue) => prevValue + latex);
     setOpen(false);
@@ -50,6 +63,65 @@ ${matrix.map((row) => row.map((it) => it || "0").join(" & ")).join(" \\\\ ")}
           }}
         >
           X
+        </div>
+
+        <div className="flex justify-center mb-8">
+          <div className="flex gap-1">
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "(x)" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("(x)")}
+            >
+              (x)
+            </button>
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "[x]" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("[x]")}
+            >
+              [x]
+            </button>
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "{x}" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("{x}")}
+            >
+              {`{x}`}
+            </button>
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "|x|" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("|x|")}
+            >
+              |x|
+            </button>
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "||x||" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("||x||")}
+            >
+              ||x||
+            </button>
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "none" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("none")}
+            >
+              None
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-col items-center justify-center">
