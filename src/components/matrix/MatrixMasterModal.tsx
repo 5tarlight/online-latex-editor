@@ -21,13 +21,13 @@ export default function MatrixMasterModal({
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }) {
   type Brackets = "(x)" | "[x]" | "{x}" | "|x|" | "||x||" | "none";
-  const [brackets, setBrackets] = useState<Brackets>("(x)");
+  const [brackets, setBrackets] = useState<Brackets>("[x]");
 
   const buildMatrix = () => {
     const bracketsMap: Record<Brackets, string> = {
       none: "matrix",
-      "(x)": "pmatrix",
       "[x]": "bmatrix",
+      "(x)": "pmatrix",
       "{x}": "Bmatrix",
       "|x|": "vmatrix",
       "||x||": "Vmatrix",
@@ -70,20 +70,20 @@ ${matrix.map((row) => row.map((it) => it || "0").join(" & ")).join(" \\\\ ")}
             <button
               className={cn(
                 "border rounded-sm px-4 py-1",
-                brackets === "(x)" ? "bg-gray-200" : "hover:bg-gray-100"
-              )}
-              onClick={() => setBrackets("(x)")}
-            >
-              (x)
-            </button>
-            <button
-              className={cn(
-                "border rounded-sm px-4 py-1",
                 brackets === "[x]" ? "bg-gray-200" : "hover:bg-gray-100"
               )}
               onClick={() => setBrackets("[x]")}
             >
               [x]
+            </button>
+            <button
+              className={cn(
+                "border rounded-sm px-4 py-1",
+                brackets === "(x)" ? "bg-gray-200" : "hover:bg-gray-100"
+              )}
+              onClick={() => setBrackets("(x)")}
+            >
+              (x)
             </button>
             <button
               className={cn(
