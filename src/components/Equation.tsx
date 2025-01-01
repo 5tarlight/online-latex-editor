@@ -1,4 +1,4 @@
-import { MathJax, MathJaxContext } from "better-react-mathjax";
+import { MathJax } from "better-react-mathjax";
 import ExportToSvg from "./Downloads/ExportToSvg";
 import ExportToPng from "./Downloads/ExportToPng";
 
@@ -24,8 +24,8 @@ export default function Equation({
         {`\\[ ${children} \\]`}
       </MathJax>
       <div className="flex justify-center flex-col-2 gap-2">
-        <ExportToSvg children={children} fontsize={fontSize}/>
-        <ExportToPng children={children} fontsize={fontSize}/>
+        <ExportToSvg children={children} fontsize={fontSize} />
+        <ExportToPng children={children} fontsize={fontSize} />
       </div>
     </div>
   );
