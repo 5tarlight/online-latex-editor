@@ -282,14 +282,11 @@ const brackets: Content[] = [
   ["()", "\\left( \\right)"],
   ["[]", "\\left[ \\right]"],
   ["\\{\\}", "\\left\\{ \\right\\}"],
-  ["\\langle", "\\langle"],
-  ["\\rangle", "\\rangle"],
+  ["\\langle\\rangle", "\\left\\langle \\right\\rangle"],
   ["||", "\\left| \\right|"],
   ["\\|\\|", "\\left\\| \\right\\|"],
-  ["\\lfloor", "\\lfloor"],
-  ["\\rfloor", "\\rfloor"],
-  ["\\lceil", "\\lceil"],
-  ["\\rceil", "\\rceil"],
+  ["\\lfloor\\rfloor", "\\left\\lfloor \\right\\rfloor"],
+  ["\\lceil\\rceil", "\\left\\lceil \\right\\rceil"],
 ];
 
 const specialBold: Content[] = [
