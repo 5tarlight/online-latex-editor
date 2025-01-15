@@ -13,10 +13,10 @@ or PNG files for use in documents, presentations, and more.
 
 ## Getting Started
 
-To use the application, simply visit the website, input your LaTeX code,
+To use the application, simply visit the website, write your LaTeX code,
 and export the equation once you're satisfied with the rendering.
 
-## Spces
+## Specs
 
 - Vite
 - React
