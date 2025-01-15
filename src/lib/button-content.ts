@@ -109,6 +109,14 @@ const inequality: Content[] = [
   ["\\cong", "\\cong"],
   ["\\equiv", "\\equiv"],
   ["\\propto", "\\propto"],
+  ["\\gtrsim", "\\gtrsim"],
+  ["\\lesssim", "\\lesssim"],
+  ["\\succ", "\\succ"],
+  ["\\prec", "\\prec"],
+  ["\\succeq", "\\succeq"],
+  ["\\preceq", "\\preceq"],
+  ["\\succcurlyeq", "\\succcurlyeq"],
+  ["\\preccurlyeq", "\\preccurlyeq"],
 ];
 
 const trigonometry: Content[] = [
@@ -124,36 +132,36 @@ const trigonometry: Content[] = [
   ["\\coth", "\\coth"],
 ];
 
-const geometry: Content[] = [
-  ["\\angle", "\\angle"],
-  ["\\triangle", "\\triangle"],
-  ["\\square", "\\square"],
-  ["\\rectangle", "\\rectangle"],
-  ["\\circle", "\\circle"],
-  ["\\ell", "\\ell"],
-  ["\\parallel", "\\parallel"],
-  ["\\perp", "\\perp"],
-  ["\\cong", "\\cong"],
-  ["\\sim", "\\sim"],
-  ["\\perpendicular", "\\perpendicular"],
-  ["\\congruent", "\\congruent"],
-  ["\\similar", "\\similar"],
-  ["\\mid", "\\mid"],
-  ["\\angle", "\\angle"],
-  ["\\triangle", "\\triangle"],
-  ["\\square", "\\square"],
-  ["\\rectangle", "\\rectangle"],
-  ["\\circle", "\\circle"],
-  ["\\ell", "\\ell"],
-  ["\\parallel", "\\parallel"],
-  ["\\perp", "\\perp"],
-  ["\\cong", "\\cong"],
-  ["\\sim", "\\sim"],
-  ["\\perpendicular", "\\perpendicular"],
-  ["\\congruent", "\\congruent"],
-  ["\\similar", "\\similar"],
-  ["\\mid", "\\mid"],
-];
+// const geometry: Content[] = [
+//   ["\\angle", "\\angle"],
+//   ["\\triangle", "\\triangle"],
+//   ["\\square", "\\square"],
+//   ["\\rectangle", "\\rectangle"],
+//   ["\\circle", "\\circle"],
+//   ["\\ell", "\\ell"],
+//   ["\\parallel", "\\parallel"],
+//   ["\\perp", "\\perp"],
+//   ["\\cong", "\\cong"],
+//   ["\\sim", "\\sim"],
+//   ["\\perpendicular", "\\perpendicular"],
+//   ["\\congruent", "\\congruent"],
+//   ["\\similar", "\\similar"],
+//   ["\\mid", "\\mid"],
+//   ["\\angle", "\\angle"],
+//   ["\\triangle", "\\triangle"],
+//   ["\\square", "\\square"],
+//   ["\\rectangle", "\\rectangle"],
+//   ["\\circle", "\\circle"],
+//   ["\\ell", "\\ell"],
+//   ["\\parallel", "\\parallel"],
+//   ["\\perp", "\\perp"],
+//   ["\\cong", "\\cong"],
+//   ["\\sim", "\\sim"],
+//   ["\\perpendicular", "\\perpendicular"],
+//   ["\\congruent", "\\congruent"],
+//   ["\\similar", "\\similar"],
+//   ["\\mid", "\\mid"],
+// ];
 
 const setTheory: Content[] = [
   ["\\emptyset", "\\emptyset"],
@@ -225,7 +233,6 @@ const statistics: Content[] = [
   ["\\overleftrightarrow{x}", "\\overleftrightarrow{}"],
   ["\\widehat{x}", "\\widehat{}"],
   ["\\widetilde{x}", "\\widetilde{}"],
-  ["\\overbrace{x}", "\\overbrace{}"],
 ];
 
 const physics: Content[] = [
@@ -236,12 +243,6 @@ const physics: Content[] = [
 const overUnder: Content[] = [
   ["\\overbrace{x}", "\\overbrace{}^{}"],
   ["\\underbrace{x}", "\\underbrace{}_{}"],
-  ["\\overline{x}", "\\overline{}"],
-  ["\\underline{x}", "\\underline{}"],
-  ["\\overrightarrow{x}", "\\overrightarrow{}"],
-  ["\\overleftarrow{x}", "\\overleftarrow{}"],
-  ["\\overleftrightarrow{x}", "\\overleftrightarrow{}"],
-  ["\\widehat{x}", "\\widehat{}"],
   ["\\widetilde{x}", "\\widetilde{}"],
   ["\\overset{a}{abc}", "\\overset{}{}"],
   ["\\underset{a}{abc}", "\\underset{}{}"],
@@ -312,6 +313,13 @@ const multiLine: Content[] = [
   ],
 ];
 
+const specialBoldPreset: Content[] = [
+  ["\\mathbb{R}", "\\mathbb{R}"],
+  ["\\mathbb{C}", "\\mathbb{C}"],
+  ["\\mathbb{Z}", "\\mathbb{Z}"],
+  ["\\mathbb{N}", "\\mathbb{N}"],
+];
+
 export const buttons: Content[][] = [
   common,
   symbols,
@@ -329,9 +337,9 @@ export const buttons: Content[][] = [
   arrows,
   combinations,
   specialBold,
+  specialBoldPreset,
   [["\\text{Text}", "\\text{}"]],
   [["\\textbf{TextBF}", "\\textbf{}"]],
-  [["\\LaTeX", "\\LaTeX"]],
   linearAlgebra,
   multiLine,
 ];
