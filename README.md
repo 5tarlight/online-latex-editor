@@ -4,7 +4,8 @@ This project is a web application that allows users to write LaTeX equations
 and visualize them in real-time. You can export the rendered equations as SVG
 or PNG files for use in documents, presentations, and more.
 
-![Preview](image.png)
+<img width="1209" alt="Preview" src="https://github.com/user-attachments/assets/f4bdb9c4-f93d-4e50-934a-6e06cccb77f5" />
+
 
 ## Features
 
