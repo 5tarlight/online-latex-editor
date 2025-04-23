@@ -33,8 +33,6 @@ const logic: Content[] = [
   ["\\lor", "\\lor"],
   ["\\lnot", "\\lnot"],
   ["\\uplus", "\\uplus"],
-  ["\\vee", "\\vee"],
-  ["\\wedge", "\\wedge"],
   ["\\odot", "\\odot"],
   ["\\otimes", "\\otimes"],
   ["\\models", "\\models"],
@@ -313,7 +311,7 @@ const specialBold: Content[] = [
   ["\\mathrm{A}", "\\mathrm{}"],
   ["\\mathcal{A}", "\\mathcal{}"],
   ["\\mathfrak{A}", "\\mathfrak{}"],
-  ["\\mathscr{A}", "\\mathcal{}"],
+  ["\\mathscr{A}", "\\mathscr{}"],
 ];
 
 const combinations: Content[] = [
