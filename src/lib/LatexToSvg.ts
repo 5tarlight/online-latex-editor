@@ -17,13 +17,13 @@ export function convertLatexToSVG(children: string, fontsize: number, containerR
     OutputJax: svgOutput,
   });
 
-  // LaTeX를 SVG로 변환하여 실제 DOM에 추가
+  // Convert LaTeX to SVG
   const node = html.convert(children, { display: true });
   if (containerRef.current) {
     containerRef.current.innerHTML = '';
     containerRef.current.appendChild(node);
 
-    // SVG에 fontsize를 적용
+    // Set the font size of the SVG element
     const svgElement = containerRef.current.querySelector('svg');
     if (svgElement) {
       svgElement.style.fontSize = `${fontsize}px`;
