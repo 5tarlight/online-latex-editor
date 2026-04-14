@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import LatexInput from "./components/LatexInput";
 import Title from "./components/Title";
 import Equation from "./components/Equation";
@@ -8,9 +8,20 @@ import OpenMatrix from "./components/matrix/OpenMatrix";
 function App() {
   const [value, setValue] = useState("");
   const [fontSize, setFontSize] = useState(20);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const pendingCursorRef = useRef<{ start: number; end: number } | null>(null);
 
-  const append = useCallback((x: string) => {
-    setValue((prevValue) => prevValue + x);
+  const insertAtCursor = useCallback((text: string) => {
+    const ta = textareaRef.current;
+    const start = ta?.selectionStart ?? 0;
+    const end = ta?.selectionEnd ?? 0;
+
+    setValue((prev) => prev.slice(0, start) + text + prev.slice(end));
+
+    const firstBrace = text.indexOf("{}");
+    const cursorPos =
+      firstBrace !== -1 ? start + firstBrace + 1 : start + text.length;
+    pendingCursorRef.current = { start: cursorPos, end: cursorPos };
   }, []);
 
   return (
@@ -21,11 +32,16 @@ function App() {
           <ButtonGroups
             fontSize={fontSize}
             setFontSize={setFontSize}
-            append={append}
+            append={insertAtCursor}
           />
         </div>
-        <OpenMatrix setValue={setValue} value={value} />
-        <LatexInput value={value} setValue={setValue} />
+        <OpenMatrix insertAtCursor={insertAtCursor} />
+        <LatexInput
+          value={value}
+          setValue={setValue}
+          textareaRef={textareaRef}
+          pendingCursorRef={pendingCursorRef}
+        />
         <Equation fontSize={fontSize}>{value}</Equation>
       </div>
     </main>

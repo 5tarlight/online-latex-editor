@@ -3,11 +3,9 @@ import cn from "../../lib/cn";
 import MatrixMasterModal from "./MatrixMasterModal";
 
 export default function OpenMatrix({
-  value,
-  setValue,
+  insertAtCursor,
 }: {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  insertAtCursor: (text: string) => void;
 }) {
   const [open, setOpen] = useState(false);
   const [rows, setRows] = useState(1);
@@ -31,7 +29,7 @@ export default function OpenMatrix({
           setMatrix={setMatrix}
           setRows={setRows}
           setOpen={setOpen}
-          setValue={setValue}
+          insertAtCursor={insertAtCursor}
         />
       )}
     </>

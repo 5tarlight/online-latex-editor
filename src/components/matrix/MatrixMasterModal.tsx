@@ -9,7 +9,7 @@ export default function MatrixMasterModal({
   setCols,
   matrix,
   setMatrix,
-  setValue,
+  insertAtCursor,
 }: {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   rows: number;
@@ -18,7 +18,7 @@ export default function MatrixMasterModal({
   setCols: React.Dispatch<React.SetStateAction<number>>;
   matrix: string[][];
   setMatrix: React.Dispatch<React.SetStateAction<string[][]>>;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  insertAtCursor: (text: string) => void;
 }) {
   type Brackets = "(x)" | "[x]" | "{x}" | "|x|" | "||x||" | "none";
   const [brackets, setBrackets] = useState<Brackets>("[x]");
@@ -37,7 +37,7 @@ export default function MatrixMasterModal({
 ${matrix.map((row) => row.map((it) => it || "0").join(" & ")).join(" \\\\ ")}
 \\end{${bracketsMap[brackets]}}`;
 
-    setValue((prevValue) => prevValue + latex);
+    insertAtCursor(latex);
     setOpen(false);
   };
 
